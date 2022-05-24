@@ -1,5 +1,11 @@
+
+import React from "react"
+import Login from "./Login";
+
 function PublicPage() {
-  return <h3>Public</h3>;
+
+  <Login/>
+  
 }
 
 export default PublicPage;
