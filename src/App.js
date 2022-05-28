@@ -1,26 +1,21 @@
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider, RequireAuth } from "./context/auth-context";
 import Login from "./routes/Login";
-import Layout from "./components/Layout";
-import PublicPage from "./routes/PublicPage";
-import ProtectedPage from "./routes/ProtectedPage";
+// import Feed from "./routes/Feed.js";
+import Register from "./routes/Register";
 
 function App() {
   return (
     <AuthProvider>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<PublicPage />} />
+          <Route path="/" element={
+             <RequireAuth> 
+            {/* <Feed/> */}
+            </RequireAuth>} 
+           />
+        
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/protected"
-            element={
-              <RequireAuth>
-                <ProtectedPage />
-              </RequireAuth>
-            }
-          />
-        </Route>
+          <Route path="/register" element={<Register />} />
       </Routes>
     </AuthProvider>
   );
