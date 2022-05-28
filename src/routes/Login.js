@@ -99,7 +99,7 @@ function Login() {
       </InputRightElement>
     </InputGroup>
     </FormLabel>
-        <Button mt={"40px"} colorScheme=" #00ACC1;"  marginTop="36px"   w={"100%"}
+        <Button mt={"36px"} colorScheme=" #00ACC1;"    w={"100%"}
          type="submit">Entrar</Button>
              </Flex>
       </form>
