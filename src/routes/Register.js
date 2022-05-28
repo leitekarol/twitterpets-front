@@ -44,11 +44,11 @@ const Register = () => {
     mh={["800px", "720px"]}>
 
         <Flex bgImage={[dogRegisterMobile, dogRegister]} bgRepeat={"no-repeat"} bgPosition={"center"} bgSize={"cover"}
-         alt='' w={["360px", "768px"]} h={["143px", "720px"]} >
+         alt='' w={["", "768px"]} h={["143px", "720px"]} >
 
-           <Flex display={['flex', 'none']}  m={"auto"} gap={"39px"}>
+           <Box display={['flex', 'none']} justifyContent={"end"} alignItems={"center"} m={"38px"}  >
             <Image boxSize={"50px"} src={symbolwhite}  />
-              </Flex>
+              </Box>
 
               <Flex display={['none', 'flex']} justifyContent={"center"} alignItems={"center"} w={"100%"}>
                <Image   w={"418px"} h={"103px"} src={logo}/>
