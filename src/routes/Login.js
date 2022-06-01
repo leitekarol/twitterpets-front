@@ -108,7 +108,7 @@ function Login() {
       <Text mb={"30px"} mt={"24px"} >
           Ainda não possui uma conta?{' '} <br/>
           <Text  as='u'>
-          <Link  as={ReachLink} to='/register' color='teal.500' href='#'>
+          <Link  as={ReachLink} to='/signup' color='teal.500' href='#'>
             Cadastre-se
         </Link>  
         </Text>

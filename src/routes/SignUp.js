@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/auth-context";
+
+import {signup} from "../services/auth.js"
 import React from "react";
 import { Flex, 
   Input, 
@@ -10,7 +10,8 @@ import { Flex,
    Image, 
    Link, 
    Text, 
-   FormLabel} from "@chakra-ui/react";
+   FormLabel,
+   } from "@chakra-ui/react";
 import { ViewIcon , ViewOffIcon } from '@chakra-ui/icons'
 import dogRegister from "../images/dogRegister.png"
 import symbolwhite from "../images/symbolwhite.png"
@@ -20,21 +21,29 @@ import logo from "../images/logo.png"
 import  symbol from "../images/symbol.png";
 import { Link as ReachLink } from "react-router-dom"
 
-const Register = () => {
-  
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { signin } = useAuth();
-  const from = location.state?.from?.pathname || "/";
+const SignUp = () => {
+
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || "/";
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
+ 
   async function handleSubmit(event) {
+    try{
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const email = formData.get("email");
-    const password = formData.get("password");
-    await signin({ email, password });
-    navigate(from, { replace: true });
+    const data2 ={ name:formData.get("name"), 
+    email:formData.get("email"), 
+    username:formData.get("username"), 
+    password:formData.get("password")}
+    console.log(data2);
+    await signup(data2);
+    alert("Usuário criado com sucesso!")
+  } catch (error){
+    alert("Esse usuário já foi criado!")
+
+  };
   }
 
   
@@ -97,7 +106,7 @@ const Register = () => {
     </FormLabel> 
 
     <Text  fontSize="10" fontWeight="400">Deve conter no mínimo oito números e uma letra maiúscula </Text>
-        <Button colorScheme=" #00ACC1;" w={"100%"} mt={"36px"}  type="submit">Cadastrar</Button>
+        <Button colorScheme=" #00ACC1;" w={"100%"} mt={"36px"}  type="submit" >Cadastrar</Button>
         </Flex>
       </form>
       
@@ -118,4 +127,4 @@ const Register = () => {
   );
 }
 
-export default Register;
+export default SignUp;
