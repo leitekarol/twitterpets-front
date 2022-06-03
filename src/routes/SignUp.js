@@ -1,16 +1,7 @@
 
 import {signup} from "../services/auth.js"
 import React from "react";
-import { Flex, 
-  Input, 
-  InputGroup, 
-  InputRightElement, 
-  Button,
-   Box, 
-   Image, 
-   Link, 
-   Text, 
-   FormLabel,
+import { Flex, Input, InputGroup, InputRightElement, Button, Box, Image, Link, Text, FormLabel,
    } from "@chakra-ui/react";
 import { ViewIcon , ViewOffIcon } from '@chakra-ui/icons'
 import dogRegister from "../images/dogRegister.png"
@@ -23,9 +14,6 @@ import { Link as ReachLink } from "react-router-dom"
 
 const SignUp = () => {
 
-  // const navigate = useNavigate();
-  // const location = useLocation();
-  // const from = location.state?.from?.pathname || "/";
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
  
@@ -98,7 +86,7 @@ const SignUp = () => {
        <Input  w={"100%"} pr='4.5rem'  placeholder='Senha' name="password"
         type={show ? 'text' : 'password'}/>
       <InputRightElement >
-        <Button h='13px' onClick={handleClick} width="20px" position="absolute">
+        <Button h='13px' onClick={handleClick} width="20px" position="absolute" bg={'none'}>
           {show ? <ViewOffIcon boxSize={6}/>  : <ViewIcon  boxSize={6}/>}
         </Button>
       </InputRightElement>

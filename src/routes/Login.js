@@ -93,7 +93,7 @@ function Login() {
         w={"100%"}
       />
       <InputRightElement width='4.5rem'>
-        <Button h='1.75rem' size='sm' onClick={handleClick}>
+        <Button h='1.75rem' size='sm' onClick={handleClick} bg={'none'}>
           {show ? <ViewOffIcon boxSize={6}/> : <ViewIcon  boxSize={6}/>}
         </Button>
       </InputRightElement>
