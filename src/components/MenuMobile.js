@@ -32,7 +32,7 @@ function MenuMobile() {
           <Image margin={"auto"} marginBottom={"2rem"} borderRadius='full'  
           boxSize='100px' src={dogMenuMobile}  alt='Photo'/>
           </DrawerHeader>
-          <DrawerBody  max-height={'136px'} >
+          <DrawerBody h={'138px'} >
             <MenuLink/>
           </DrawerBody>
           <Button alignItems={'center'} w={'100%'} colorScheme='teal'

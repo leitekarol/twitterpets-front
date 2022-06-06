@@ -94,7 +94,7 @@ const SignUp = () => {
     </FormLabel> 
 
     <Text  fontSize="10" fontWeight="400">Deve conter no mínimo oito números e uma letra maiúscula </Text>
-        <Button colorScheme=" #00ACC1;" w={"100%"} mt={"36px"}  type="submit" >Cadastrar</Button>
+        <Link colorScheme=" #00ACC1;" w={"100%"} mt={"36px"}  type="submit" >Cadastrar</Link>
         </Flex>
       </form>
       

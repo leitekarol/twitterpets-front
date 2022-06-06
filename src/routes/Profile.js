@@ -1,12 +1,13 @@
 import React from "react";
-import Petweets from "../components/Petweets.js";
+import Feed from "../components/Feed.js";
 
-function Home() {
+function Profile() {
     return(
         <div>
-       <Petweets/>
+     <Feed/>
+
         </div>
     )
 }
 
-export default Home;
+export default Profile;

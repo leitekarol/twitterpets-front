@@ -5,6 +5,7 @@ import Home from "./routes/Home";
 import SignUp from "./routes/SignUp";
 import Profile from "./routes/Profile";
 
+
 function App() {
   return (
     <AuthProvider>
@@ -13,6 +14,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<RequireAuth> <Home/></RequireAuth>} />
           <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+      
 
       </Routes>
     </AuthProvider>
