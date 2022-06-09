@@ -15,7 +15,7 @@ function MenuMobile() {
   const btnRef = React.useRef()
 
   return (
-    <Flex direction={['column']}  w={'480px'} h={'800px'} alignItems={'center'}> 
+    <Flex direction={['column']}  w={'360px'} h={'48px'} alignItems={'center'}> 
     <Box display={'flex'}   boxShadow="base"  p="3" flexDirection={'row'} 
      bgImage={[logoMenuMobile, logoMenuDesktop ]} bgRepeat="no-repeat" bgPosition={"center"} 
      width={"100%"}  position={"absolute"} borderBottom={'ButtonShadow'}>

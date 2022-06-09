@@ -34,13 +34,10 @@ function Login() {
     const formData = new FormData(event.currentTarget);
     const email = formData.get("email");
     const password = formData.get("password");
-
     await signin({ email, password });
     navigate(from, { replace: true });
   }
  
-
-
   return (
       <Flex direction={['column', 'row']}  mw={["480px", "1280px"]} 
       mh={["800px", "720px"]}>
