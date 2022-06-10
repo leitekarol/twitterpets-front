@@ -14,8 +14,10 @@ function Home() {
  <Flex direction={['column']}  mw={["480px", '"1280px"']}  mh={["800px", "720px"]}>      
           <Flex display={["flex", "none"]}   >
             <MenuMobile />
+            <Flex direction={['column']} >
             <PetweetsMobile/>
-            <Feed />
+            <Feed/>
+            </Flex>
             </Flex>
             <Flex display={["none", "flex"]}>
              <MenuDesktop />

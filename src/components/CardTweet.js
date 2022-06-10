@@ -11,18 +11,6 @@ import { useEffect, useState } from 'react';
 import { getUser } from '../services/auth';
 
 
-
-//  const infoTweets = [
-//      {image: nikoViraLata, name:"Niko Vira Lata", username:'@doguinhoniko_20'},
-//      {image: gatoMalhado, name:"Gato Malhado", username:'gatinhomalhado2021'},
-//      {image: maiconoSalsicha, name:"Maicon Salsicha", username:'@salsichamaicon'},
-//      {image: cacatuaAna, name:"Cacatua Ana", username:'@anaacacatua'},
-//      {image: LaikaSputnik, name:"Laika Sputnik", username:'@laikaastronauta'},
-//      {image: simbaGatinho, name:"Simba Gatinho", username:'@catsimba123'},
-//      {image: wandaPeixe, name:"Wanda o peixe", username:'@umpeixechamadowanda'}
-//  ];
-
-
 const CardTweet = ({body, createdAt, user_id}) => {
 
     const [user, setUser] = useState({name: "Carregando", username: "Carregando"})

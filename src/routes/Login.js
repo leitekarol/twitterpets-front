@@ -20,9 +20,11 @@ import footer from "../images/footer.png"
 import dogLoginMobile from "../images/dogLoginMobile.png"
 import symbol from "../images/symbol.png"
 import { Link as ReachLink } from "react-router-dom"
+import { useForm } from "react-hook-form";
 
 
 function Login() {
+  const { register } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
   const { signin } = useAuth();
@@ -78,7 +80,7 @@ function Login() {
       <form onSubmit={handleSubmit} > 
       <Flex direction={"column"} >
      <FormLabel> Email:
-      <Input  w={"100%"} pr='4.5rem' placeholder='E-mail'  name="email"  />
+      <Input  w={"100%"} pr='4.5rem' placeholder='E-mail'  name="email" {...register("email")}  />
       </FormLabel> 
       <FormLabel pt={"2px"}> Senha:
       <InputGroup size='md'>
@@ -88,6 +90,7 @@ function Login() {
         placeholder='Senha'
         name="password"
         w={"100%"}
+        {...register("password")}
       />
       <InputRightElement width='4.5rem'>
         <Button h='1.75rem' size='sm' onClick={handleClick} bg={'none'}>
