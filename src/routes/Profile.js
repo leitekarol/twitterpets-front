@@ -8,7 +8,7 @@ import HeaderProfile from "../components/HeaderProfile.js";
 function Profile(){
 
     return(
-        <Flex direction={['column']}  mw={["480px", '"1280px"']}  mh={["800px", "720px"]}>      
+        <Flex direction={['column']}  mw={["480px", "1280px"]}  mh={["800px", "720px"]}>      
                  <Flex display={["flex", "none"]} direction={'column'} >
                    <MenuMobile />
                    <Flex direction={'column'}>

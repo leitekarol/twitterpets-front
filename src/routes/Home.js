@@ -11,12 +11,14 @@ import PetweetsMobile from "../components/PetweetsMobile.js";
 function Home() {
 
     return(
- <Flex direction={['column']}  mw={["480px", '"1280px"']}  mh={["800px", "720px"]}>      
-          <Flex display={["flex", "none"]}   >
+ <Flex direction={['column']}  mw={["480px", "1280px"]}  mh={["800px", "720px"]}>      
+          <Flex display={["flex", "none"]} w={'100%'}  >
             <MenuMobile />
-            <Flex direction={['column']} >
-            <PetweetsMobile/>
+            <Flex direction={['column']}  >
+            <Flex mt={"50px"} >
             <Feed/>
+            <PetweetsMobile />
+            </Flex>
             </Flex>
             </Flex>
             <Flex display={["none", "flex"]}>

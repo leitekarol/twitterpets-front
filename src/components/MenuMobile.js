@@ -5,8 +5,8 @@ import menuMobile from '../images/menuMobile.png'
 import logoMenuMobile from '../images/logoMenuMobile.png'
 import dogMenuMobile from "../images/dogMenuMobile.png"
 import logoMenuDesktop from "../images/logoMenuDesktop.png"
-import signouticon from "../images/signouticon.png"
 import MenuLink from "./MenuLink.js"
+import SignoutModal from './SignoutModal';
 
 
 function MenuMobile() {
@@ -15,12 +15,12 @@ function MenuMobile() {
   const btnRef = React.useRef()
 
   return (
-    <Flex direction={['column']}  w={'360px'} h={'48px'} alignItems={'center'}> 
+    <Flex direction={['column']}  maxWidth={'480px'} w={'100%'} h={'48px'} alignItems={'center'}  position={'fixed'}> 
     <Box display={'flex'}   boxShadow="base"  p="3" flexDirection={'row'} 
      bgImage={[logoMenuMobile, logoMenuDesktop ]} bgRepeat="no-repeat" bgPosition={"center"} 
-     width={"100%"}  position={"absolute"} borderBottom={'ButtonShadow'}>
+     width={"100%"}  borderBottom={'ButtonShadow'}>
       <Button display={['flex', 'none']} ref={btnRef} bg='none'  onClick={onOpen} >
-        <Image ml={'0.2rem'}  height={'1.3rem'}  src= {menuMobile}   alt='menu' />
+        <Image m={'2px'}  height={'21px'}  src= {menuMobile}   alt='menu' />
       </Button>
       </Box> 
       
@@ -34,10 +34,8 @@ function MenuMobile() {
           </DrawerHeader>
           <DrawerBody h={'138px'} >
             <MenuLink/>
-          </DrawerBody>
-          <Button alignItems={'center'} w={'100%'} colorScheme='teal'
-             variant='link'py={'12px'} borderRadius={0} >
-                      <Image src={signouticon} mr='11px' w={'20px'} h={'20px'} />Sair</Button>
+            <SignoutModal/>
+          </DrawerBody>             
         </DrawerContent>
       </Drawer>
     </Flex>

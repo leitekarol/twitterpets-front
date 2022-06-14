@@ -2,11 +2,11 @@ import { Flex } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { getAllTweet } from '../services/auth';
 import CardTweet from './CardTweet';
-
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 function Feed(){
     const [tweet, setTweet] = useState([]);
-  
+    // const [hasMore, setHasMore] = useState(true);
     useEffect(() => {
         const request = async () => {
           try {
@@ -20,10 +20,12 @@ function Feed(){
   }, [])
 
     return(
-
-             <Flex p={'12px'} direction={"column"}>
+          
+             <Flex  direction={"column"} >
+                {/* <InfiniteScroll dataLength={tweet.length} next={fetchdata} hasMore={true} >  */}
                 {tweet.map ((element) => <CardTweet body={element.body} createdAt={element.createdAt} 
                 user_id={element.user_id} /> )}
+                {/* </InfiniteScroll> */}
               </Flex>
     )
 }

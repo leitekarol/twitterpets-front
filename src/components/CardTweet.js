@@ -9,9 +9,16 @@ import nikoViraLata from '../images/nikoViraLata.png'
 import { Flex, Link, Text, Image } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import { getUser } from '../services/auth';
+import ReactTimeAgo from 'react-time-ago';
+// import portugueseStrings from 'react-timeago/lib/language-strings/pt' 
+// import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'  
+// import TimeAgo from 'javascript-time-ago';
+
 
 
 const CardTweet = ({body, createdAt, user_id}) => {
+
+    //  const formatter = buildFormatter(portugueseStrings)
 
     const [user, setUser] = useState({name: "Carregando", username: "Carregando"})
      useEffect(() => {
@@ -26,12 +33,21 @@ const CardTweet = ({body, createdAt, user_id}) => {
   }, [user_id])
 
     return(
-           <Flex  w={'360px'}   direction={'row'} m={'16px'}>
-           <Image boxSize={'48px'} src={nikoViraLata}/>
-           <Link to="/profile" >{user?.name}</Link> <Text> {user?.username}</Text>
-           <Text> {body}</Text> 
-          <Text> {createdAt} </Text>
+           <Flex direction={'row'} gap={['8px','16px']} maxWidth={'780px'} p={'16px'}
+           borderBottom={'1px solid #EEEEEE'}>
+           <Image alignSelf={'flex-start'} boxSize={'48px'} src={nikoViraLata}/>
+           <Flex  pr={'4px'} gap={'8px'}  color={'#757575;'} direction={'column'}> 
+           <Flex direction={'row'} gap={'4px'} alignItems={'center'}> 
+           <Link to="/profile"  fontSize={['14px','15px']} lineHeight={'19px'} fontWeight={'700'}
+           >{user?.name}</Link> <Text  fontWeight={'300'} lineHeight={'17px'} 
+           fontSize={['12px', '15px']}> {user?.username}</Text>
+          <Text fontSize={['12px','15px']} fontWeight={['300','400']} lineHeight={['17px','21px']} >.</Text><ReactTimeAgo locale='pt-BR' date={Date.parse(createdAt)} fontWeight={['300','400']} 
+          fontSize={['12px', '15px']} lineHeight={['17px','21px']}/>
+          </Flex>
+          <Text  fontWeight={'400'} fontSize={'14px'} color={'#141619;'}>{body}</Text> 
+          </Flex>
            </Flex>
+           
     )
 }
 export default CardTweet;
