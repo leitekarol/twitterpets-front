@@ -7,6 +7,7 @@ import signouticon from "../images/signouticon.png"
 
 
   
+
   function SignoutModal() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const auth = useAuth();
