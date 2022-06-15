@@ -20,9 +20,11 @@ import footer from "../images/footer.png"
 import dogLoginMobile from "../images/dogLoginMobile.png"
 import symbol from "../images/symbol.png"
 import { Link as ReachLink } from "react-router-dom"
+import { useForm } from "react-hook-form";
 
 
 function Login() {
+  const { register } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
   const { signin } = useAuth();
@@ -34,13 +36,10 @@ function Login() {
     const formData = new FormData(event.currentTarget);
     const email = formData.get("email");
     const password = formData.get("password");
-
     await signin({ email, password });
     navigate(from, { replace: true });
   }
  
-
-
   return (
       <Flex direction={['column', 'row']}  mw={["480px", "1280px"]} 
       mh={["800px", "720px"]}>
@@ -81,7 +80,7 @@ function Login() {
       <form onSubmit={handleSubmit} > 
       <Flex direction={"column"} >
      <FormLabel> Email:
-      <Input  w={"100%"} pr='4.5rem' placeholder='E-mail'  name="email"  />
+      <Input  w={"100%"} pr='4.5rem' placeholder='E-mail'  name="email" {...register("email")}  />
       </FormLabel> 
       <FormLabel pt={"2px"}> Senha:
       <InputGroup size='md'>
@@ -91,9 +90,10 @@ function Login() {
         placeholder='Senha'
         name="password"
         w={"100%"}
+        {...register("password")}
       />
       <InputRightElement width='4.5rem'>
-        <Button h='1.75rem' size='sm' onClick={handleClick}>
+        <Button h='1.75rem' size='sm' onClick={handleClick} bg={'none'}>
           {show ? <ViewOffIcon boxSize={6}/> : <ViewIcon  boxSize={6}/>}
         </Button>
       </InputRightElement>

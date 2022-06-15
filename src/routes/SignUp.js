@@ -1,16 +1,7 @@
 
 import {signup} from "../services/auth.js"
 import React from "react";
-import { Flex, 
-  Input, 
-  InputGroup, 
-  InputRightElement, 
-  Button,
-   Box, 
-   Image, 
-   Link, 
-   Text, 
-   FormLabel,
+import { Flex, Input, InputGroup, InputRightElement, Button, Box, Image, Link, Text, FormLabel,
    } from "@chakra-ui/react";
 import { ViewIcon , ViewOffIcon } from '@chakra-ui/icons'
 import dogRegister from "../images/dogRegister.png"
@@ -20,15 +11,16 @@ import dogRegisterMobile from "../images/dogRegisterMobile.png"
 import logo from "../images/logo.png"
 import  symbol from "../images/symbol.png";
 import { Link as ReachLink } from "react-router-dom"
+import { useForm } from "react-hook-form";
+
+
 
 const SignUp = () => {
 
-  // const navigate = useNavigate();
-  // const location = useLocation();
-  // const from = location.state?.from?.pathname || "/";
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
- 
+  const { register } = useForm();
+
   async function handleSubmit(event) {
     try{
     event.preventDefault();
@@ -45,7 +37,6 @@ const SignUp = () => {
 
   };
   }
-
   
   return (
       
@@ -78,27 +69,27 @@ const SignUp = () => {
       <Flex direction={"column"} >
       <FormLabel pt={"24px"}> Nome:
       <InputGroup>
-      <Input  w={"100%"} pr='4.5rem'  placeholder='Nome' name="name" />
+      <Input  w={"100%"} pr='4.5rem'  placeholder='Nome' name="name"  {...register("name")} />
       </InputGroup>
       </FormLabel>
 
       <FormLabel  pt={"2px"}> Email:
       <InputGroup>
-      <Input  w={"100%"} pr='4.5rem'  placeholder='E-mail'  name="email"  />
+      <Input  w={"100%"} pr='4.5rem'  placeholder='E-mail'  name="email"  {...register("email")} />
       </InputGroup>
       </FormLabel>
 
       <FormLabel  pt={"2px"}> Nome de usuário:
       <InputGroup>
-      <Input  w={"100%"} pr='4.5rem' placeholder='Ex.:@doguinho'  name="username"  />
+      <Input  w={"100%"} pr='4.5rem' placeholder='Ex.:@doguinho'  name="username"   {...register("username")} />
       </InputGroup>
       </FormLabel>
       <FormLabel  pt={"2px"}> Senha:
         <InputGroup >
        <Input  w={"100%"} pr='4.5rem'  placeholder='Senha' name="password"
-        type={show ? 'text' : 'password'}/>
+        type={show ? 'text' : 'password'}  {...register("password")} />
       <InputRightElement >
-        <Button h='13px' onClick={handleClick} width="20px" position="absolute">
+        <Button h='13px' onClick={handleClick} width="20px" position="absolute" bg={'none'}>
           {show ? <ViewOffIcon boxSize={6}/>  : <ViewIcon  boxSize={6}/>}
         </Button>
       </InputRightElement>
@@ -106,7 +97,7 @@ const SignUp = () => {
     </FormLabel> 
 
     <Text  fontSize="10" fontWeight="400">Deve conter no mínimo oito números e uma letra maiúscula </Text>
-        <Button colorScheme=" #00ACC1;" w={"100%"} mt={"36px"}  type="submit" >Cadastrar</Button>
+        <Button colorScheme=" #00ACC1;" w={"100%"} mt={"36px"}  type="submit"  >Cadastrar</Button>
         </Flex>
       </form>
       

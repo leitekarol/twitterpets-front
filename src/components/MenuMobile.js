@@ -1,55 +1,44 @@
+import {Drawer, DrawerBody, DrawerHeader,  DrawerOverlay, DrawerContent, Button, useDisclosure, 
+  Box,  Image, Flex } from '@chakra-ui/react'
+import React from 'react';
+import menuMobile from '../images/menuMobile.png'
+import logoMenuMobile from '../images/logoMenuMobile.png'
+import dogMenuMobile from "../images/dogMenuMobile.png"
+import logoMenuDesktop from "../images/logoMenuDesktop.png"
+import MenuLink from "./MenuLink.js"
+import SignoutModal from './SignoutModal';
 
-import React from "react";
-
-import {
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Button,
-  Input,
-  useDisclosure
-} from '@chakra-ui/react'
 
 function MenuMobile() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = React.useRef()
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = React.useRef()
 
   return (
-    <div>
-    <>
-      <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-        Open
+    <Flex direction={['column']}  maxWidth={'480px'} w={'100%'}  alignItems={'center'}  position={'fixed'}> 
+    <Box display={'flex'}   boxShadow="base"  p="3" flexDirection={'row'} 
+     bgImage={[logoMenuMobile, logoMenuDesktop ]} bgRepeat="no-repeat" bgPosition={"center"} 
+     width={"100%"}  borderBottom={'ButtonShadow'}>
+      <Button display={['flex', 'none']} ref={btnRef} bg='none'  onClick={onOpen} >
+        <Image m={'2px'}  height={'21px'}  src= {menuMobile}   alt='menu' />
       </Button>
-      <Drawer
-        isOpen={isOpen}
-        placement='right'
-        onClose={onClose}
-        finalFocusRef={btnRef}
-      >
+      </Box> 
+      
+      <Drawer display={['flex', 'none']} alignItems={'center'} placement='left' onClose={onClose} 
+      finalFocusRef={btnRef} isOpen={isOpen} >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
-
-          <DrawerBody>
-            <Input placeholder='Type here...' />
-          </DrawerBody>
-
-          <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme='blue'>Save</Button>
-          </DrawerFooter>
+          <DrawerHeader >
+          <Image margin={"auto"} marginBottom={"2rem"} borderRadius='full'  
+          boxSize='100px' src={dogMenuMobile}  alt='Photo'/>
+          </DrawerHeader>
+          <DrawerBody h={'138px'} >
+            <MenuLink/>
+            <SignoutModal m={'0px'}/>
+          </DrawerBody>             
         </DrawerContent>
       </Drawer>
-    </>
-    </div>
-  )}
-
-
+    </Flex>
+ )
+}
 export default MenuMobile;

@@ -1,6 +1,5 @@
 import { createContext, useState, useContext } from "react";
 import { useLocation, Navigate } from "react-router-dom";
-
 import { setInStorage, login } from "../services/auth";
 
 const AuthContext = createContext(null);
@@ -11,6 +10,7 @@ export function AuthProvider({ children }) {
 
   const signin = async (data) => {
     try {
+      console.log(data);
       const response = await login(data);
       const user = {
         accessToken: response.data.accessToken,
@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
       setUser(user);
     } catch (error) {
       console.log(error);
-      alert("Email ou senha inválidos");
+      alert("Senha ou email inválidos!");
     }
   };
 
