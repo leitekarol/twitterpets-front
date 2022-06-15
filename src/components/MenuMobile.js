@@ -15,7 +15,7 @@ function MenuMobile() {
   const btnRef = React.useRef()
 
   return (
-    <Flex direction={['column']}  maxWidth={'480px'} w={'100%'} h={'48px'} alignItems={'center'}  position={'fixed'}> 
+    <Flex direction={['column']}  maxWidth={'480px'} w={'100%'}  alignItems={'center'}  position={'fixed'}> 
     <Box display={'flex'}   boxShadow="base"  p="3" flexDirection={'row'} 
      bgImage={[logoMenuMobile, logoMenuDesktop ]} bgRepeat="no-repeat" bgPosition={"center"} 
      width={"100%"}  borderBottom={'ButtonShadow'}>
@@ -34,7 +34,7 @@ function MenuMobile() {
           </DrawerHeader>
           <DrawerBody h={'138px'} >
             <MenuLink/>
-            <SignoutModal/>
+            <SignoutModal m={'0px'}/>
           </DrawerBody>             
         </DrawerContent>
       </Drawer>

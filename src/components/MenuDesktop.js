@@ -12,8 +12,8 @@ return (
           <Flex p={'24px'}>
            <Image src={logoMenuDesktop}/>
           </Flex>
-              <MenuLink />
-              <SignoutModal/>
+              <MenuLink/>
+              <SignoutModal m={'0px'}/>
               </Flex>
 )
 }

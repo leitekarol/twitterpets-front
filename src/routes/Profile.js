@@ -11,7 +11,7 @@ function Profile(){
         <Flex direction={['column']}  mw={["480px", "1280px"]}  mh={["800px", "720px"]}>      
                  <Flex display={["flex", "none"]} direction={'column'} >
                    <MenuMobile />
-                   <Flex direction={'column'}>
+                   <Flex direction={'column'} mt={"50px"}>
                    <HeaderProfile/>
                    <UserProfile/>
                    </Flex>

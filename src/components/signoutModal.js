@@ -29,7 +29,7 @@ import signouticon from "../images/signouticon.png"
           </ModalContent>
       </Modal>
       
-      <LinkBox pt={"30px"} onClick={onOpen}  alignSelf={'center'} display={"flex"} flexDirection={"row"}><Image  src={signouticon} boxSize='25px' mx={"0.3rem"} alt='Photo'/> Sair </LinkBox>
+      <LinkBox pt={"48px"} justifyContent={'center'} onClick={onOpen} display={"flex"} flexDirection={"row"}><Image  src={signouticon} boxSize='25px' mx={"0.3rem"} alt='Photo'/> Sair </LinkBox>
       
           
       </>

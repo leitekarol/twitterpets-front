@@ -8,7 +8,7 @@ export const createTweet = (data) => client.post("/tweet", data);
 
 export const getUser = (id) => client.get(`/users/${id}`);
 
-export const getAllTweet = () => client.get("/tweet");
+export const getAllTweet = (skip) => client.get(`/tweet?take=10&skip=${skip}`);
 
 export const listUserTweet = (id) => client.get(`/tweet/${id}`);
 

@@ -7,17 +7,19 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 function Feed(){
     const [tweet, setTweet] = useState([]);
     // const [hasMore, setHasMore] = useState(true);
+    const [skip, setSkip] = useState(0);
     useEffect(() => {
         const request = async () => {
           try {
-            const response = await getAllTweet()
+            const response = await getAllTweet(skip)
             setTweet(response.data);
+            console.log(response.data);
           } catch (error) {
-            alert("não foi possível listar os tweets");
+            alert("Não foi possível listar os tweets");
           }
     }   
     request();
-  }, [])
+  }, [skip])
 
     return(
           
