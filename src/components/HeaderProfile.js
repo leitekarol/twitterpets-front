@@ -1,4 +1,7 @@
-import { Flex, Image, Text } from '@chakra-ui/react';
+import { Flex, Image,
+   Text,
+    // useToast
+   } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/auth-context';
@@ -7,16 +10,23 @@ import { getUser } from '../services/auth';
 
 
 function HeaderProfile(){
-
-    const {user} = useAuth()
-    const {user_id} = useParams()
-    const [userBack, setUserBack] = useState({name: "Carregando", username: "Carregando"})
+    // const toast = useToast();
+    const {user} = useAuth();
+    const {user_id} = useParams();
+    const [userBack, setUserBack] = useState({name: "Carregando", username: "Carregando"});
     useEffect(() => {
         const request = async () => {
           try {
             const response = await getUser(user_id)
             setUserBack(response.data);
           } catch (error) {
+          //   toast({
+          //     position: 'top',
+          //     title: 'Não foi possível encontrar o usuário!',
+          //     status: 'error',
+          //     duration: 5000,
+          //     isClosable: true,
+          // })
           }
     }     
     request();
@@ -28,8 +38,7 @@ function HeaderProfile(){
          <Flex direction={'column'} ml={['16px' , '30px']}  >
          <Image boxSize={['73px','120px']} src={nikoViraLata} pr={'34px'}/>
          <Text fontWeight={['600', '700']} fontSize={['16px', '18px']} lineHeight={['22px' , '25px']} 
-         pt={['12px', '40px']}  color={'#000000;'} borderBottom={'3px solid #00ACC1'}
-      borderStartEndRadius={'10px'}>Petposts</Text>
+         pt={['12px', '40px']}  color={'#000000;'} borderBottom={'3px solid #00ACC1'}>Petposts</Text>
          </Flex>
         <Flex direction={'column'} alignSelf={'center'}>
          <Text fontWeight={'700'} fontSize={['22px' ,'24px']} lineHeight={['30px','33px']}

@@ -1,25 +1,20 @@
 
 import nikoViraLata from '../images/nikoViraLata.png'
-// import gatoMalhado from "../images/gatoMalhado.png"
-// import maiconoSalsicha from "../images/maiconoSalsicha.png"
-// import cacatuaAna from "../images/cacatuaAna.png"
-// import LaikaSputnik from "../images/LaikaSputnik.png"
-// import simbaGatinho from "../images/simbaGatinho.png"
-// import wandaPeixe from "../images/wandaPeixe.png"
-import { Flex, Text, Image } from '@chakra-ui/react'
+import { Flex, Text, 
+  Image,
+  //  useToast 
+  } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import { getUser } from '../services/auth';
 import ReactTimeAgo from 'react-time-ago';
 import { useLocation } from 'react-router-dom';
-// import portugueseStrings from 'react-timeago/lib/language-strings/pt' 
-// import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'  
-// import TimeAgo from 'javascript-time-ago';
+
 import { Link } from "react-router-dom";
 
 
 const CardTweet = ({body, createdAt, user_id}) => {
 
-  
+  //  const {toast} = useToast();
     const location = useLocation();
     const [user, setUser] = useState({name: "Carregando", username: "Carregando"})
      useEffect(() => {
@@ -28,6 +23,14 @@ const CardTweet = ({body, createdAt, user_id}) => {
             const response = await getUser(user_id)
             setUser(response.data);
           } catch (error) {
+          //   toast({
+          //     position: 'top',
+          //     title: 'Não foi possível encontrar o usuário!',
+          //     description: error.message,
+          //     status: 'error',
+          //     duration: 10000,
+          //     isClosable: true,
+          // })
           }
     }     
     request();

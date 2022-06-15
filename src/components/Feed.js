@@ -2,16 +2,16 @@ import { Flex } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { getAllTweet } from '../services/auth';
 import CardTweet from './CardTweet';
-import InfiniteScroll from 'react-infinite-scroll-component';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 
 function Feed(){
     const [tweet, setTweet] = useState([]);
     // const [hasMore, setHasMore] = useState(true);
-    const [skip, setSkip] = useState(0);
+    // const [skip, setSkip] = useState(0);
     useEffect(() => {
         const request = async () => {
           try {
-            const response = await getAllTweet(skip)
+            const response = await getAllTweet()
             setTweet(response.data);
             console.log(response.data);
           } catch (error) {
@@ -19,7 +19,7 @@ function Feed(){
           }
     }   
     request();
-  }, [skip])
+  }, [])
 
     return(
           
